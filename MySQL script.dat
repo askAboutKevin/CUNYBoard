@@ -1,0 +1,41 @@
+CREATE DATABASE CUNYBoard;
+use CUNYBoard;
+
+CREATE TABLE Students (name varchar(15), empl varchar(9) NOT NULL UNIQUE, email varchar(25) NOT NULL UNIQUE, number varchar(11) NOT NULL UNIQUE, primary key(empl) );
+CREATE TABLE Classes( empl varchar(9) NOT NULL,  section varchar(8) NOT NULL, name varchar(15) NOT NULL, primary key(empl, section) );
+CREATE TABLE Authorized (username varchar(10) NOT NULL, password varchar(10) NOT NULL);
+
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+INSERT INTO Students (name, empl, email, number) VALUES ();
+
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+INSERT INTO Classes (empl, section, name) VALUES ();
+
+INSERT INTO Authorized (username, password) VALUES ();
+INSERT INTO Authorized (username, password) VALUES ();
+INSERT INTO Authorized (username, password) VALUES ();
+INSERT INTO Authorized (username, password) VALUES ();
+INSERT INTO Authorized (username, password) VALUES ();
