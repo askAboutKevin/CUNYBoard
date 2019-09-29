@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script>
+                function sendRoom(){
+                    data =$("#roomchange").serializeArray();
+                    $.ajax({
+                 url:         'http://localhost:9005/twilio/changed?section=HACK2019',
+                 method:      'GIT',
+                
+                 
+             });
+                }
+        </script>
+           <script>
+                function sendUser(){
+                    data =$("#delayed").serializeArray();
+                    $.ajax({
+                 url:         'http://localhost:9005/twilio/delay?section=HACK2019',
+                 method:      'GIT',
+                 
+                 
+             });
+                }
+            </script> 
+               <script>
+                    function sendUser(){
+                        data =$("#emergency").serializeArray();
+                        $.ajax({
+                     url:         'http://localhost:9005/twilio/emergency?section=HACK2019',
+                     method:      'GIT',
+                    
+                     
+                 });
+                    }
+                </script> 
+                   <script>
+                        function sendUser(){
+                            data =$("#cancelled").serializeArray();
+                            $.ajax({
+                         url:         'http://localhost:9005/twilio/cancel?section=HACK2019',
+                         method:      'GIT',
+                        
+                         
+                     });
+                        }
+                    </script> 
+
+    <title>Student Home page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel = "stylesheet" type = "text/css " href = "classstudentlook.css" />
+</head>
+<body>
+
+    <div class = "header">
+        <div class = "cunyboard"> <h1>CUNYBoard</h1> </div>
+        <div class = "name"> <h1>NAME</h1> </div>
+    </div>
+
+    <div class="sidenav">
+            <div class = "Advantures pictures">
+                    <img src = "note.jpg" width = "200" height = "200" alt = "notebook">  
+                         
+             
+                </div>
+        <br/><br/><br/><br/>
+        <div class = "classlist"> <h1> Class List </h1> </div>
+        <a href="#">cisc 3140</a>
+        <a href="#">cisc 3810</a>
+        <a href="#">cisc 3660</a>
+        <a href="#">Art 1200</a>
+
+    </div>
+
+    <div class="content">
+    <h1>Database</h1>
+    <br/>
+    <h2>Grade 91.6</h2>
+    <br/>
+    <h2>Next Assigment Due:</h2>
+    </div>
+
+    <br/><br/><br/><br/><br/>
+    <div class = "pageButtonsContainer">
+        <button type = "roomchange">
+            <h2> <a href = "" ></a> ROOM CHANGE  </a> </h2>
+        </button>
+
+        <button type = "cancelled">
+            <h2> <a href = "" ></a> CANCELLED  </a> </h2>
+        </button>
+
+        <button type = "delayed">
+            <h2> <a href = "" ></a> DELAYED  </a> </h2>
+        </button>
+
+        <button type = "emergency">
+            <h2> <a href = "" ></a> EMERGENCY  </a> </h2>
+        </button>
+
+    </div>
+
+</body>
+</html>
+
