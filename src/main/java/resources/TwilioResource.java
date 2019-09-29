@@ -1,6 +1,8 @@
 package resources;
 
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,55 +14,80 @@ import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 
+import dao.ClassDAO;
+import dao.entity.Student;
+import service.classes.ClassServiceImpl;
+
 @Path("/twilio")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class TwilioResource {
-
-	public static final String ACCOUNT_SID = "AC97aa30b3d0b88df9fc500c3d25702457";
-    public static final String AUTH_TOKEN = "fintyv-rejxab-sucJe9";
+	
+	private ClassServiceImpl classservice;
+	
+	private static final String ACCOUNT_SID = "AC97aa30b3d0b88df9fc500c3d25702457";
+	private static final String AUTH_TOKEN = "fintyv-rejxab-sucJe9";
     
-	public TwilioResource() {
+	public TwilioResource(ClassServiceImpl classservice) {
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+		this.classservice = classservice;
 	}
 
 	@GET
 	@Path("/cancel")
-	public static void classCancelled(@QueryParam("section") String section) {
+	public void classCancelled(@QueryParam("section") String section) {
 		String message = "Your class " + section + " has been cancelled today";
 		
-		Message send = Message.creator(new PhoneNumber("+19177088589"),
-		        new PhoneNumber("+15017250604"), 
-		        message).create();
+		List<Student> students = this.classservice.getStudentsInClass(section);
+			
+		for (Student s : students) {
+			Message send = Message.creator(new PhoneNumber("+19177088589"),
+			        new PhoneNumber(s.getNumber()), 
+			        message).create();
+		}
+		
 	}
 	
 	@GET
 	@Path("/changed")
-	public static void roomChanged(@QueryParam("section") String section, String newRoom) {
+	public void roomChanged(@QueryParam("section") String section, String newRoom) {
 		String message = "Your classroom for " + section + " has been changed to " + newRoom + " today";
 		
-		Message send = Message.creator(new PhoneNumber("+19177088589"),
-		        new PhoneNumber("+15017250604"), 
-		        message).create();
+		List<Student> students = this.classservice.getStudentsInClass(section);
+
+		for (Student s : students) {
+			@SuppressWarnings("unused")
+			Message send = Message.creator(new PhoneNumber("+19177088589"),
+			        new PhoneNumber(s.getNumber()), 
+			        message).create();
+		}
 	}
 	
 	@GET
 	@Path("/emergency")
-	public static void emergency(@QueryParam("section") String section) {
+	public void emergency(@QueryParam("section") String section) {
 		String message = "There is an emergency in this class " + section + " today";
 		
-		Message send = Message.creator(new PhoneNumber("+19177088589"),
-		        new PhoneNumber("+15017250604"), 
-		        message).create();
+		List<Student> students = this.classservice.getStudentsInClass(section);
+
+		for (Student s : students) {
+			Message send = Message.creator(new PhoneNumber("+19177088589"),
+			        new PhoneNumber(s.getNumber()), 
+			        message).create();
+		}
 	}
 	
 	@GET
 	@Path("/delay")
-	public static void delayed(@QueryParam("section") String section) {
+	public void delayed(@QueryParam("section") String section) {
 		String message = "Your class " + section + " is going to start late today";
-		
-		Message send = Message.creator(new PhoneNumber("+19177088589"),
-		        new PhoneNumber("+15017250604"), 
-		        message).create();
+	
+		List<Student> students = this.classservice.getStudentsInClass(section);
+
+		for (Student s : students) {
+			Message send = Message.creator(new PhoneNumber("+19177088589"),
+			        new PhoneNumber(s.getNumber()), 
+			        message).create();
+		}
 	}
 }

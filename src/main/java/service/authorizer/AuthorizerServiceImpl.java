@@ -6,7 +6,7 @@ import dao.entity.Authorized;
 public class AuthorizerServiceImpl {
 	
 	private AuthorizerDAO authorizerDAO;
-
+	
 	public AuthorizerServiceImpl(AuthorizerDAO authorizerDAO) {
 		super();
 		this.authorizerDAO = authorizerDAO;

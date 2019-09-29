@@ -50,9 +50,8 @@ public class CUNYBoard extends Application<ServerConfiguration> {
         environment.jersey().register(new ClassResource(classServiceImpl));
         environment.jersey().register(new StudentResource(studentServiceImpl));
         environment.jersey().register(new AuthorizerResource(authorizerServiceImpl));
-        environment.jersey().register(new TwilioResource());
-        
-
+        environment.jersey().register(new TwilioResource(classServiceImpl));
+       
     }
 
 }

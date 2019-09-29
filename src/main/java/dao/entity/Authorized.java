@@ -1,5 +1,7 @@
 package dao.entity;
 
+import org.jdbi.v3.core.mapper.reflect.ColumnName;
+
 public class Authorized {
 
 	private String username;
@@ -14,6 +16,7 @@ public class Authorized {
 	public Authorized() {
 	}
 	
+	@ColumnName("username")
 	public String getUsername() {
 		return username;
 	}
@@ -22,6 +25,7 @@ public class Authorized {
 		this.username = username;
 	}
 
+	@ColumnName("password")
 	public String getPassword() {
 		return this.password;
 	}
