@@ -99,6 +99,14 @@ button:hover {
   position: absolute;
   margin-top: -25%;
 }
-
-
-  
+.container ::before{
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+  z-index: -1;
+  background: rgba(177,188,199,0.075);
+  border-radius: 4px;
+}
