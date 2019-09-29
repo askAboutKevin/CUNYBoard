@@ -36,6 +36,7 @@ public class TwilioResource {
 	@GET
 	@Path("/cancel")
 	public void classCancelled(@QueryParam("section") String section) {
+		
 		String message = "Your class " + section + " has been cancelled today";
 		
 		List<Student> students = this.classservice.getStudentsInClass(section);

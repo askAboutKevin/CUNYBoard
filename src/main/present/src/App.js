@@ -35,10 +35,8 @@ class App extends Component {
                 <div className="clearfix">
                   <button type="submit" className="signupbtn"> Sign in</button>
                 </div>
-                <div className="clearfix">
-                  <form onSubmit="./sign-in.html">
-                    <input type="submit" className="signupbtn" value="Log In" />
-                  </form>
+                <div>
+                  <a href="./sign-in.html"><button>Go To Sign Up</button></a>
                 </div>
               </div>
           </form>

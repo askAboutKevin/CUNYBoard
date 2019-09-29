@@ -28,13 +28,6 @@ public class AuthorizerResource {
 	@GET
 	public Response authorizeUser(@QueryParam("uname") String username, @QueryParam("pw") String password) {
 		Authorized user = authorizerService.authorize(username, password);
-		int u = 6;
-		if(u ==6) {
-			return Response
-					.status(Status.OK)
-					.entity(76)
-					.build();
-		}
 		if(user.getPassword() == password) {
 			return Response
 					.status(Status.OK)

@@ -7,7 +7,7 @@ import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import dao.entity.Authorized;
 import dao.mapper.AuthorizerMapper;;
 
-public interface AuthorizerDAO extends RowMapper<Authorized> {
+public interface AuthorizerDAO {
 
 	@SqlQuery("SELECT username, password FROM authorized WHERE password = ?")
 	@RegisterRowMapper(AuthorizerMapper.class)
