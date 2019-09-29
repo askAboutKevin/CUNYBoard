@@ -2,37 +2,21 @@ package app;
 
 import org.jdbi.v3.core.Jdbi;
 
-import authorization.User;
 import config.ServerConfiguration;
-import dao.CustomersDAO;
-import dao.ProductsDAO;
-import dao.SalesDAO;
-import dao.SupplierDAO;
-import dao.TransactionsDAO;
-import dao.UserDAO;
+import dao.AuthorizerDAO;
+import dao.ClassDAO;
+import dao.StudentDAO;
 import io.dropwizard.Application;
-import io.dropwizard.auth.AuthDynamicFeature;
-import io.dropwizard.auth.Authenticator;
-import io.dropwizard.auth.Authorizer;
-import io.dropwizard.auth.basic.BasicCredentialAuthFilter;
 import io.dropwizard.jdbi3.JdbiFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import resources.CustomerResource;
-import resources.ProductResource;
-import resources.SaleResource;
-import resources.SupplierResource;
-import resources.TransactionResource;
-import service.customers.CustomerService;
-import service.customers.CustomerServiceImpl;
-import service.products.ProductService;
-import service.products.ProductServiceImpl;
-import service.sales.SalesService;
-import service.sales.SalesServiceImpl;
-import service.suppliers.SupplierService;
-import service.suppliers.SupplierServiceImpl;
-import service.transactions.TransactionService;
-import service.transactions.TransactionServiceImpl;
+import resources.AuthorizerResource;
+import resources.ClassResource;
+import resources.StudentResource;
+import resources.TwilioResource;
+import service.authorizer.AuthorizerServiceImpl;
+import service.classes.ClassServiceImpl;
+import service.student.StudentServiceImpl;
 
 public class CUNYBoard extends Application<ServerConfiguration> {
     public static void main(String[] args) throws Exception {
@@ -54,30 +38,21 @@ public class CUNYBoard extends Application<ServerConfiguration> {
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
         
-        final UserDAO userdao = jdbi.onDemand(UserDAO.class);
+        final ClassDAO classDAO = jdbi.onDemand(ClassDAO.class);
+        final StudentDAO studentDAO = jdbi.onDemand(StudentDAO.class);
+        final AuthorizerDAO authorizerDAO = jdbi.onDemand(AuthorizerDAO.class);
+      
+        final StudentServiceImpl studentServiceImpl = new StudentServiceImpl(studentDAO);
+        final ClassServiceImpl classServiceImpl = new ClassServiceImpl(classDAO);
+        final AuthorizerServiceImpl authorizerServiceImpl = new AuthorizerServiceImpl(authorizerDAO);
         
-        // Resources
-        final ProductsDAO productDao = jdbi.onDemand(ProductsDAO.class);
-        final ProductService productService = new ProductServiceImpl(productDao);
-     
-        final TransactionsDAO TransactionsDAO = jdbi.onDemand(TransactionsDAO.class);
-        final TransactionService transactionService = new TransactionServiceImpl(TransactionsDAO);
         
-        final SalesDAO salesDAO = jdbi.onDemand(SalesDAO.class);
-        final SalesService salesService = new SalesServiceImpl(salesDAO);
+        environment.jersey().register(new ClassResource(classServiceImpl));
+        environment.jersey().register(new StudentResource(studentServiceImpl));
+        environment.jersey().register(new AuthorizerResource(authorizerServiceImpl));
+        environment.jersey().register(new TwilioResource());
         
-        final SupplierDAO supplierDAO = jdbi.onDemand(SupplierDAO.class);
-        final SupplierService supplierService = new SupplierServiceImpl(supplierDAO);
-        
-        final CustomersDAO customersDAO = jdbi.onDemand(CustomersDAO.class);
-        final CustomerService customerService = new CustomerServiceImpl(customersDAO);
-        
-        environment.jersey().register(new ProductResource(productService));
-        environment.jersey().register(new TransactionResource(transactionService));
-        environment.jersey().register(new SaleResource(salesService, productService));
-        environment.jersey().register(new SupplierResource(supplierService));
-        environment.jersey().register(new CustomerResource(customerService));
-        
+
     }
 
 }

@@ -8,11 +8,10 @@ import org.jdbi.v3.core.statement.StatementContext;
 
 import dao.entity.Student;
 
-public class StudentMapper implements RowMapper<Student>{
+public class StudentMapper implements RowMapper<Student> {
 
 	public Student map(ResultSet rs, StatementContext ctx) throws SQLException {
-		return new Student(rs.getString("name"), rs.getString("empl"), rs.getString("email"), rs.getString("number"), rs.getFloat("gpa"));
+		return new Student(rs.getString("name"), rs.getString("empl"), rs.getString("email"), rs.getString("number"), rs.getFloat(4));
 	}
-
-	
 }
+

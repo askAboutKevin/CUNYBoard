@@ -1,9 +1,19 @@
 package service.authorizer;
 
-public class AuthorizerServiceImpl implements AuthorizerService {
+import dao.AuthorizerDAO;
+import dao.entity.Authorized;
 
-	public AuthorizerServiceImpl() {
-		// TODO Auto-generated constructor stub
+public class AuthorizerServiceImpl {
+	
+	private AuthorizerDAO authorizerDAO;
+
+	public AuthorizerServiceImpl(AuthorizerDAO authorizerDAO) {
+		super();
+		this.authorizerDAO = authorizerDAO;
+	}
+	
+	public Authorized authorize(String username, String password) {
+		return authorizerDAO.getAuthorizedUser(password);
 	}
 
 }
