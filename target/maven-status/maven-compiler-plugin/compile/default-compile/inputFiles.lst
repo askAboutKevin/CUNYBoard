@@ -11,6 +11,7 @@
 /Users/kevindowdy/Desktop/Projects/CUNYBoard/src/main/java/dao/AuthorizerDAO.java
 /Users/kevindowdy/Desktop/Projects/CUNYBoard/src/main/java/resources/AuthorizerResource.java
 /Users/kevindowdy/Desktop/Projects/CUNYBoard/src/main/java/dao/entity/Authorized.java
+/Users/kevindowdy/Desktop/Projects/CUNYBoard/src/main/java/resources/PageResource.java
 /Users/kevindowdy/Desktop/Projects/CUNYBoard/src/main/java/dao/entity/Student.java
 /Users/kevindowdy/Desktop/Projects/CUNYBoard/src/main/java/resources/TwilioResource.java
 /Users/kevindowdy/Desktop/Projects/CUNYBoard/src/main/java/resources/StudentResource.java

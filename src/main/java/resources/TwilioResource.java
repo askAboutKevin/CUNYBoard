@@ -29,7 +29,7 @@ public class TwilioResource {
 	public static void classCancelled(@QueryParam("section") String section) {
 		String message = "Your class " + section + " has been cancelled today";
 		
-		Message send = Message.creator(new PhoneNumber("+15558675309"),
+		Message send = Message.creator(new PhoneNumber("+19177088589"),
 		        new PhoneNumber("+15017250604"), 
 		        message).create();
 	}
@@ -39,7 +39,7 @@ public class TwilioResource {
 	public static void roomChanged(@QueryParam("section") String section, String newRoom) {
 		String message = "Your classroom for " + section + " has been changed to " + newRoom + " today";
 		
-		Message send = Message.creator(new PhoneNumber("+15558675309"),
+		Message send = Message.creator(new PhoneNumber("+19177088589"),
 		        new PhoneNumber("+15017250604"), 
 		        message).create();
 	}
@@ -49,7 +49,7 @@ public class TwilioResource {
 	public static void emergency(@QueryParam("section") String section) {
 		String message = "There is an emergency in this class " + section + " today";
 		
-		Message send = Message.creator(new PhoneNumber("+15558675309"),
+		Message send = Message.creator(new PhoneNumber("+19177088589"),
 		        new PhoneNumber("+15017250604"), 
 		        message).create();
 	}
@@ -59,7 +59,7 @@ public class TwilioResource {
 	public static void delayed(@QueryParam("section") String section) {
 		String message = "Your class " + section + " is going to start late today";
 		
-		Message send = Message.creator(new PhoneNumber("+15558675309"),
+		Message send = Message.creator(new PhoneNumber("+19177088589"),
 		        new PhoneNumber("+15017250604"), 
 		        message).create();
 	}
