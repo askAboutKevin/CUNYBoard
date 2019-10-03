@@ -2,12 +2,12 @@ body {
   margin: 0;
   padding: 0;
   background-image: url(https://www.thenology.com/wp-content/uploads/2016/01/479474.jpg);
-  background-size: cover ;
+  background-size: cover;
   background-repeat: no-repeat;
   background-color: black;
-  height: 50%;  
+  height: 50%;
 }
-.cover{
+.cover {
   object-fit: cover;
   width: 100%;
 }
@@ -19,7 +19,7 @@ body {
 }
 
 /*menu*/
-.container h1  {
+.container h1 {
   margin: -20px -20px 21px;
   line-height: 40px;
   font-size: 15px;
