@@ -1,4 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.footer {
+  background-color: #000;
+  position: relative;
+  height: 100px;
+  margin-top: 0px;
+  clear: both;
+}
 body {
+  overflow: auto;
   margin: 0;
   padding: 0;
   background-image: url(https://www.thenology.com/wp-content/uploads/2016/01/479474.jpg);
