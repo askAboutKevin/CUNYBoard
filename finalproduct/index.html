@@ -2,23 +2,7 @@
 <html>
 
         <head>
-       
-      <script>
-          function toggleLogin(){
-            var arrow=document.getElementById('arrow');
-            var login=document.getElementById('login');
-            var disarrow= arro.style.display;
-            var dlogin= login.style.display
-              if(displogin=='block'&&disparrow=='block'){
-                arrow.style.display='none';
-                login.style.display='none';
-              }else{
-                  arrow.style.display='block';
-                  login.style.display='block';
-              }
-
-          }
-      </script>
+  
               
        <script>
            function sendUser(){
@@ -32,7 +16,7 @@
         });
            }
        </script>
-       
+          
        
         
             <meta charset="utf-8" />
@@ -52,54 +36,31 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         
         <!--start of navbar with disappearing and reappearing login menue-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="index.html">CSMARTBOARD</a>
-                      <aside class="menu">
-                        <div class="menu_login">
-                         <i class="fa fa-unlock-alt"></i> <a href="#" id="loginp" onclick="toggleLogin()">Login</a>|<i class="fa fa-unlock-user"></i><a href="#">Register</a>
-                        </div>
-                        <div class="arrow-up" id="arrow"style="display: none">
-                          
-                        </div>
-                      </aside>
-                    </div>
-
-                    <div class= "login_panel" id="login" style="display:none;">
-                      <form>
-                          <label>EmpilID</label>
-                        <div>
-                          <input type="text"placeholder="23387984" required/>
-                        </div>
-                        <label>Password</label>
-                        <div>
-                            <input type="text"placeholder="Password" required/>
-                          </div>
-                          <div>
-                              <input type="submit" value="Log In">
-                          </div>
-                          <div>
-                            <a href="#" style="text-decoration:none;position:relative;top:20px;font-size:14px;color:gray;">Lost Your Password</a>
-                          </div>
-                      </form>
-
-                    </div>
-                  </nav>
         
-
-                  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://i.pinimg.com/originals/01/b8/0f/01b80fc51eebaca8b1aca40db7159492.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="..." class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="..." class="d-block w-100" alt="...">
-                        </div>
-                      </div>
-                    </div>
-                  
-                  
+        <nav class="navbar navbar-dark bg-dark ">
+          <a class="navbar-brand" href="index.html">csboard</a>
+          <div class="login">
+            <a class="btn btn-primary btn-lg" data-toggle="collapse" href="login-box" role="button">Log In</a>
+            <button type="button" class="btn btn-primary btn-lg" href="#">Sign Up</button>
+          </div>
+          <div class="collapse" id="login-box">
+          <div class="container">
+            <div class="form">
+              <label>
+               EmpilID<span class="req"></span>
+              </label>
+                <input type="text"required autocomplete="off">
+              <label>
+                Password<span class="req"></span>
+              </label>
+              <input type="password" required autocomplete="off">
+              <button class="btn btn-primary btn-lg">Log In</button>
+            </div>
+            </div>
+          </div>
+        </nav>
+        
+        
+   
     </body>
 </html>
